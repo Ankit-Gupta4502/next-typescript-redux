@@ -1,8 +1,18 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
+import Header from '../Components/Header'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { getTodos } from '../redux/Actions'
+import { RootState } from '../redux/store'
 export default function Home() {
+  const dispatch: Function = useDispatch()
+  const { reducer } = useSelector((state: RootState) => state);
+  useEffect(() => {
+    dispatch(getTodos())
+  }, [])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,6 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
