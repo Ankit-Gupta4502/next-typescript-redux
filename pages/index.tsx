@@ -11,6 +11,7 @@ export default function Home() {
   const { reducer } = useSelector((state: RootState) => state);
   useEffect(() => {
     dispatch(getTodos())
+    
   }, [])
 
   return (
