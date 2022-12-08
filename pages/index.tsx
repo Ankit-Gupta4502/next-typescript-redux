@@ -5,9 +5,9 @@ import Header from '../Components/Header'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getTodos } from '../redux/Actions'
-import { RootState } from '../redux/store'
+import { RootState,AppDispatch } from '../redux/store'
 export default function Home() {
-  const dispatch: Function = useDispatch()
+  const dispatch: AppDispatch = useDispatch()
   const { reducer } = useSelector((state: RootState) => state);
   useEffect(() => {
     dispatch(getTodos())
