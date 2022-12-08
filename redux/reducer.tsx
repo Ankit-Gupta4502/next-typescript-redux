@@ -11,11 +11,9 @@ const initialState = {
 
 
 const reducer = (state = initialState, action: actionsFace) => {
-    switch (action?.type) {
+    switch (action.type) {
         case "GET_TODOS":
-            return { ...state }
-            break;
-
+            return { ...state, todos: action.payload }
         default:
             return { ...state }
     }
