@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { legacy_createStore as createStore, applyMiddleware, combineReducers } from 'redux'
+import { legacy_createStore as createStore, applyMiddleware, combineReducers} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import reducer from './reducer'
@@ -20,6 +20,7 @@ function initStore(initialState: {}) {
 }
 
 export type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof store.dispatch
 export const initializeStore = (preloadedState: {}) => {
     let _store = store ?? initStore(preloadedState)
 
